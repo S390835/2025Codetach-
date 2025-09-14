@@ -1,0 +1,266 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Colorful HTML Notes & Definitions — Shyam's Guide</title>
+  <style>
+    :root{
+      --bg:#0f172a; --card:#ffffff; --muted:#475569;
+      --accent1:#ff6b6b; --accent2:#06b6d4; --accent3:#06b6d4; --accent4:#f59e0b;
+    }
+    *{box-sizing:border-box}
+    body{font-family:Inter,system-ui,Segoe UI,Roboto,Arial;margin:0;background:linear-gradient(135deg,var(--accent2),var(--accent3));color:var(--bg);min-height:100vh}
+    header{padding:28px 20px;color:#fff;text-align:center;background:linear-gradient(90deg,rgba(0,0,0,0.12),rgba(255,255,255,0.06));backdrop-filter:blur(4px)}
+    header h1{margin:0;font-size:28px;letter-spacing:0.4px}
+    header p{margin:6px 0 0;opacity:0.95}.wrap{max-width:1200px;margin:20px auto;padding:12px;display:grid;grid-template-columns:300px 1fr;gap:18px}
+nav{background:rgba(255,255,255,0.95);padding:16px;border-radius:12px;height:calc(100vh - 160px);overflow:auto}
+nav h2{font-size:16px;margin:0 0 10px;color:var(--muted)}
+nav a{display:block;padding:8px;border-radius:8px;color:var(--bg);text-decoration:none;margin-bottom:6px}
+nav a:hover{background:linear-gradient(90deg,rgba(139,92,246,0.12),rgba(6,182,212,0.08))}
+
+main{min-height:70vh}
+section.card{background:var(--card);padding:18px;border-radius:12px;margin-bottom:18px;box-shadow:0 6px 20px rgba(2,6,23,0.12)}
+h2{margin:0 0 8px}
+h3{margin:12px 0}
+.muted{color:var(--muted);font-size:14px}
+
+pre{background:#0b1220;color:#e6eef6;padding:12px;border-radius:8px;overflow:auto}
+code{font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Roboto Mono,monospace}
+
+.example{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.example .live{border-radius:8px;padding:8px;min-height:140px;border:2px dashed rgba(15,23,42,0.06);background:linear-gradient(180deg,rgba(255,255,255,0.95),#fff)}
+.controls{display:flex;gap:8px;align-items:center;margin-bottom:8px}
+button{background:var(--accent1);color:#fff;border:none;padding:8px 12px;border-radius:8px;cursor:pointer}
+button.secondary{background:var(--accent2)}
+
+.def-list{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.def-item{border-left:6px solid var(--accent3);padding:10px;border-radius:8px;background:linear-gradient(180deg,rgba(6,182,212,0.06),rgba(139,92,246,0.03))}
+
+footer{padding:18px;text-align:center;color:rgba(255,255,255,0.9)}
+
+@media(max-width:900px){.wrap{grid-template-columns:1fr}.example{grid-template-columns:1fr}.def-list{grid-template-columns:1fr}}
+.btn {
+  display: flex;
+  align-items: align-items: flex-end;
+  justify-content: flex-start;
+}
+
+  </style>
+</head>
+<body>
+  <header>
+    <h1>HTML tutorial</h1>
+    <div class="btn">
+    <Button>
+      <a style="text-decoration: none" href="w3.html">Back</a></Button>
+    </div>
+  </header>  <div class="wrap">
+    <nav>
+      <h2>Contents</h2>
+      <a href="#intro">Intro & Document Structure</a>
+      <a href="#definitions">Definitions (Important Terms)</a>
+      <a href="#elements">Common Elements</a>
+      <a href="#links-images">Links & Images</a>
+      <a href="#lists-tables">Lists & Tables</a>
+      <a href="#forms">Forms</a>
+      <a href="#media">Audio & Video</a>
+      <a href="#attributes">Global Attributes</a>
+      <a href="#accessibility">Accessibility</a>
+      <a href="#examples">Mini Projects</a>
+      <a href="#cheatsheet">Cheatsheet</a>
+    </nav><main>
+  <section id="intro" class="card">
+    <h2>Introduction & Document Structure</h2>
+    <p class="muted">Every HTML document starts with <code>&lt;!doctype html&gt;</code> and contains <code>&lt;html&gt;</code>, <code>&lt;head&gt;</code>, and <code>&lt;body&gt;</code>.</p>
+    <pre><code>&lt;!doctype html&gt;
+
+<html lang="en"> <head>...</head> <body>...</body> </html></code></pre> </section>
+
+<section id="definitions" class="card">
+    <h2>Definitions — Important HTML Terms</h2>
+    <div class="def-list">
+      <div class="def-item">
+        <strong>HTML</strong>
+        <p class="muted">HyperText Markup Language — the standard language for creating web pages. It describes the structure of a page using elements.</p>
+      </div>
+      <div class="def-item">
+        <strong>Element</strong>
+        <p class="muted">A building block of HTML like <code>&lt;p&gt;</code> or <code>&lt;a&gt;</code>. Elements can have attributes and content.</p>
+      </div>
+      <div class="def-item">
+        <strong>Attribute</strong>
+        <p class="muted">Additional information added to an element, e.g., <code>src</code> on <code>&lt;img&gt;</code> or <code>href</code> on <code>&lt;a&gt;</code>.</p>
+      </div>
+      <div class="def-item">
+        <strong>Tag</strong>
+        <p class="muted">The text in angle brackets like <code>&lt;div&gt;</code> or <code>&lt;/div&gt;</code>. Opening and closing tags mark element boundaries.</p>
+      </div>
+      <div class="def-item">
+        <strong>Semantic HTML</strong>
+        <p class="muted">Using elements that describe their meaning, like <code>&lt;article&gt;</code>, <code>&lt;header&gt;</code>, which helps accessibility and SEO.</p>
+      </div>
+      <div class="def-item">
+        <strong>Viewport</strong>
+        <p class="muted">The visible area of a web page. The meta viewport tag helps make pages responsive on mobile devices.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="elements" class="card">
+    <h2>Common Elements: Headings & Text</h2>
+    <p class="muted">Headings <code>&lt;h1&gt;</code>–<code>&lt;h6&gt;</code>, paragraphs, inline tags like <code>&lt;span&gt;</code>, and text formatting tags.</p>
+    <pre><code>&lt;h1&gt;Heading 1&lt;/h1&gt;
+
+<p>This is a paragraph. <strong>Strong</strong> <em>Emphasis</em>.</p></code></pre>
+
+<h3>Example: Text & Headings</h3>
+    <div class="example">
+      <div>
+        <div class="controls">
+          <button onclick="runExample('ex-text')">Run</button>
+          <button class="secondary" onclick="showCode('ex-text')">Show Code</button>
+        </div>
+        <div id="code-ex-text" style="display:none">
+
+<pre><code>&lt;h1 style="color:var(--accent2)"&gt;My Page&lt;/h1&gt;
+&lt;p&gt;Welcome to my website. This is an example of &lt;em&gt;HTML text&lt;/em&gt;.&lt;/p&gt;</code></pre></div>
+      </div>
+      <iframe id="ex-text" class="live"></iframe>
+    </div>
+  </section>
+
+  <section id="links-images" class="card">
+    <h2>Links & Images</h2>
+    <p class="muted">Use <code>&lt;a&gt;</code> for links and <code>&lt;img&gt;</code> for pictures. Always add <code>alt</code>.</p>
+    <pre><code>&lt;a href="https://example.com" target="_blank" rel="noopener"&gt;Visit&lt;/a&gt;
+
+<img src="https://via.placeholder.com/300" alt="Placeholder"></code></pre>
+
+<div class="example">
+      <div>
+        <div class="controls">
+          <button onclick="runExample('ex-link')">Run</button>
+          <button class="secondary" onclick="showCode('ex-link')">Show Code</button>
+        </div>
+        <div id="code-ex-link" style="display:none">
+
+<pre><code>&lt;a href="HTML5_logo_and_wordmark.svg.jpg" target="_blank" rel="noopener"&gt;Go to codeyogi&lt;/a&gt;
+&lt;img src="HTML5_logo_and_wordmark.svg.jpg" alt="Ai" width="300"&gt;</code></pre></div>
+      </div>
+      <iframe id="ex-link" class="live"></iframe>
+    </div>
+  </section>
+
+  <section id="lists-tables" class="card">
+    <h2>Lists & Tables</h2>
+    <pre><code>&lt;ul&gt;&lt;li&gt;One&lt;/li&gt;&lt;li&gt;Two&lt;/li&gt;&lt;/ul&gt;
+
+<table><tr><th>Name</th><th>Age</th></tr><tr><td>Asha</td><td>20</td></tr></table></code></pre> </section>
+
+<section id="forms" class="card">
+    <h2>Forms & Inputs</h2>
+    <p class="muted">Use labels, proper types, and client-side attributes like <code>required</code>.</p>
+    <pre><code>&lt;form&gt;&lt;label&gt;Name&lt;/label&gt;&lt;input type="text" required&gt;&lt;/form&gt;</code></pre>
+
+    <h3>Example: Small Form</h3>
+    <div class="example">
+      <div>
+        <div class="controls">
+          <button onclick="runExample('ex-form')">Run</button>
+          <button class="secondary" onclick="showCode('ex-form')">Show Code</button>
+        </div>
+        <div id="code-ex-form" style="display:none">
+
+<pre><code>&lt;form onsubmit="event.preventDefault(); alert('Submitted: '+document.getElementById('fn').value);"&gt;
+  &lt;label for="fn"&gt;Full name:&lt;/label&gt;
+  &lt;input id="fn" type="text" required&gt;
+  &lt;button type="submit"&gt;Submit&lt;/button&gt;
+&lt;/form&gt;</code></pre></div>
+      </div>
+      <iframe id="ex-form" class="live"></iframe>
+    </div>
+  </section>
+
+
+
+<section id="media" class="card">
+    <h2>Audio & Video</h2>
+    <pre><code>&lt;audio controls&gt;&lt;source src="" type="audio/mpeg"&gt;&lt;/audio&gt;
+
+<video controls width="480"><source src="video.mp4" type="video/mp4"></video></code></pre> </section>
+
+<section id="attributes" class="card">
+    <h2>Global Attributes</h2>
+    <p class="muted">Common global attributes: <code>id</code>, <code>class</code>, <code>style</code>, <code>title</code>, <code>hidden</code>, <code>data-*</code>.</p>
+  </section>
+
+  <section id="accessibility" class="card">
+    <h2>Accessibility Basics</h2>
+    <ul>
+      <li>Use <code>alt</code> on images.</li>
+      <li>Provide labels for inputs.</li>
+      <li>Choose semantic elements.</li>
+      <li>Ensure good color contrast (this page uses bright accents).</li>
+    </ul>
+  </section>
+
+  <section id="examples" class="card">
+    <h2>Mini Projects / Examples</h2>
+
+    <h3>Landing Section</h3>
+    <div class="example">
+      <div>
+        <div class="controls">
+          <button onclick="runExample('ex-landing')">Run</button>
+          <button class="secondary" onclick="showCode('ex-landing')">Show Code</button>
+        </div>
+        <div id="code-ex-landing" style="display:none">
+
+<pre><code>&lt;section style="padding:28px;text-align:center;background:linear-gradient(90deg,var(--accent2),var(--accent3));color:#fff;border-radius:12px;"&gt;
+  &lt;h1&gt;Welcome!&lt;/h1&gt;
+  &lt;p&gt;Colorful hero with CTA.&lt;/p&gt;
+  &lt;a href="#" style="display:inline-block;padding:10px 14px;background:var(--accent4);color:#000;border-radius:8px;text-decoration:none;font-weight:600;"&gt;Get Started&lt;/a&gt;
+&lt;/section&gt;</code></pre></div>
+      </div>
+      <iframe id="ex-landing" class="live"></iframe>
+    </div>
+
+  </section>
+
+  <section id="cheatsheet" class="card">
+    <h2>Quick Cheatsheet</h2>
+    <ul>
+      <li><code>&lt;a&gt;</code> — link</li>
+      <li><code>&lt;img&gt;</code> — image</li>
+      <li><code>&lt;form&gt;</code> — collect input</li>
+      <li><code>&lt;section&gt;</code>, <code>&lt;article&gt;</code> — semantic</li>
+    </ul>
+  </section>
+
+</main>
+
+  </div>  <footer>
+    Full web development course<br>
+    <p>&COPY; 2025 All rights reserved</p>
+  </footer>  <script>
+    const examples = {
+      'ex-text': `<!doctype html><html><head><meta charset=\"utf-8\"><meta name=\"viewport\" content=\"width=device-width,initial-scale=1\"></head><body style=\"font-family:system-ui;padding:18px\"><h1 style=\"color:var(--accent2)\">My Page</h1><p>Welcome to my website. This is an example of <em>HTML text</em>.</p></body></html>`,
+      'ex-link': `<!doctype html><html><body style=\"font-family:system-ui;padding:12px\"><a href=\"w3.html\" target=\"_blank\" rel=\"noopener\">code Tech</a><p><img src=\"https://via.placeholder.com/300x120\" alt=\"Demo image\" width=\"300\"></p></body></html>`,
+      'ex-form': `<!doctype html><html><body style=\"font-family:system-ui;padding:12px\"><form onsubmit=\"event.preventDefault(); alert('Submitted: '+document.getElementById('fn').value);\"><label for=\"fn\">Full name:</label><input id=\"fn\" type=\"text\" required><button type=\"submit\">Submit</button></form></body></html>`,
+      'ex-landing': `<!doctype html><html><body style=\"font-family:system-ui;padding:18px;background:linear-gradient(90deg,#8b5cf6,#06b6d4);color:#fff;display:flex;align-items:center;justify-content:center;height:140px;border-radius:12px;\"><section style=\"text-align:center\"><h1>Welcome!</h1><p>Colorful hero with CTA.</p><a href=\"#\" style=\"display:inline-block;padding:10px 14px;background:#f59e0b;color:#000;border-radius:8px;text-decoration:none;font-weight:600;\">Get Started</a></section></body></html>`
+    };
+
+    function runExample(id){
+      const iframe = document.getElementById(id);
+      iframe.srcdoc = examples[id] || '<p>No example</p>';
+    }
+    function showCode(id){
+      const el = document.getElementById('code-'+id);
+      if(!el) return; el.style.display = el.style.display === 'none' ? 'block' : 'none';
+    }
+
+    ['ex-text','ex-link','ex-form','ex-landing'].forEach(id=>{ const iframe = document.getElementById(id); if(iframe) iframe.srcdoc = examples[id]; });
+  </script></body>
+</html>

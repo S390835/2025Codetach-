@@ -1,0 +1,254 @@
+<!doctype html>
+<html lang="hi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Mohan — Resume</title>
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --blue:#007ACC;
+      --dark:#0b2540;
+      --muted:#6b7785;
+      --bg:#f7fbff;
+      --card:#ffffff;
+      --radius:14px;
+    }
+
+    *{box-sizing:border-box}
+    body{
+      font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      background: linear-gradient(180deg, var(--bg), #ffffff);
+      color: var(--dark);
+      margin: 24px;
+      -webkit-font-smoothing:antialiased;
+    }
+
+    .resume {
+      max-width: 900px;
+      margin: 0 auto;
+      background: var(--card);
+      border-radius: var(--radius);
+      box-shadow: 0 10px 30px rgba(11,37,64,0.08);
+      overflow: hidden;
+      display: grid;
+      grid-template-columns: 260px 1fr;
+    }
+
+    /* LEFT SIDEBAR */
+    .left {
+      background: linear-gradient(180deg, rgba(0,122,204,0.08), rgba(0,122,204,0.02));
+      padding: 28px;
+      display:flex;
+      flex-direction:column;
+      gap:18px;
+      align-items:center;
+    }
+
+    .photo {
+      width:140px;
+      height:140px;
+      border-radius:50%;
+      overflow:hidden;
+      border:5px solid #fff;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+      background: #ddd;
+    }
+
+    .photo img {
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      display:block;
+    }
+
+    .name {
+      text-align:center;
+    }
+    .name h1{
+      margin:8px 0 0 0;
+      font-size:20px;
+      color:var(--blue);
+      letter-spacing:0.6px;
+    }
+    .role{
+      margin:4px 0 0 0;
+      font-size:13px;
+      color:var(--muted);
+    }
+
+    .contact {
+      margin-top:6px;
+      width:100%;
+      font-size:14px;
+      color:var(--dark);
+      background: rgba(255,255,255,0.5);
+      padding:10px;
+      border-radius:10px;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.6);
+    }
+    .contact p{ margin:6px 0; font-size:13px; color:var(--dark) }
+
+    .left .section-title {
+      margin-top:6px;
+      font-weight:600;
+      color:var(--blue);
+      font-size:14px;
+      width:100%;
+    }
+
+    .skills, .langs, .certs {
+      width:100%;
+      background:transparent;
+      padding:8px 6px;
+      font-size:13px;
+      color:var(--dark);
+      line-height:1.45;
+    }
+
+    /* RIGHT MAIN */
+    .right {
+      padding:28px 30px;
+    }
+
+    .summary {
+      background: linear-gradient(90deg, rgba(0,122,204,0.03), rgba(0,122,204,0.01));
+      padding:14px 16px;
+      border-radius:10px;
+      font-size:14px;
+      color:var(--dark);
+      margin-bottom:16px;
+    }
+
+    .section {
+      margin-bottom:18px;
+    }
+    .section h3{
+      margin:0 0 8px 0;
+      color:var(--blue);
+      font-size:16px;
+      letter-spacing:0.2px;
+    }
+
+    .edu-item {
+      display:flex;
+      justify-content:space-between;
+      gap:12px;
+      border-left:3px solid rgba(0,122,204,0.06);
+      padding:8px 12px;
+      border-radius:6px;
+      background:#fff;
+      box-shadow: 0 1px 0 rgba(11,37,64,0.02);
+      margin-bottom:10px;
+    }
+    .edu-left{ font-weight:600; color:var(--dark) }
+    .edu-right{ text-align:right; font-size:13px; color:var(--muted) }
+
+    ul.clean {
+      padding-left:16px;
+      margin:6px 0;
+    }
+    ul.clean li{ margin:6px 0; font-size:14px; color:var(--dark) }
+
+    /* small screen */
+    @media (max-width:800px){
+      .resume{ grid-template-columns:1fr; padding:0; }
+      .left{ flex-direction:row; gap:12px; padding:18px; align-items:center; justify-content:flex-start; }
+      .right{ padding:18px; }
+      .photo{ width:84px; height:84px; border-width:3px }
+    }
+
+    /* Print friendly */
+    @media print{
+      body{ margin:0; background:#fff; }
+      .resume{ box-shadow:none; border-radius:0; }
+      a[href]:after { content: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <div class="resume" role="document" aria-label="Mohan Resume">
+    <!-- LEFT -->
+    <aside class="left" aria-labelledby="profile-name">
+      <div class="photo" title="Profile photo">
+        <!-- Replace profile.jpg with your image file -->
+        <img src="https://i.ibb.co/vxyZgTPh/IMG-20250313-112923-028.jpg" alt="Mohan Profile Photo">
+      </div>
+
+      <div class="name" id="profile-name">
+        <h1>MOHAN</h1>
+        <div class="role">Web Developer</div>
+      </div>
+
+      <div class="contact" aria-label="Contact information">
+        <p><strong>DOB:</strong> October 25, 2008</p>
+        <p><strong>Location:</strong> Titron, Saharanpur</p>
+        <p><strong>Phone:</strong> +91 96276 82729</p>
+        <p><strong>Email:</strong> Shyamsunder614341@gmail.com</p>
+      </div>
+
+      <div style="width:100%; margin-top:6px;">
+        <div class="section-title">Skills</div>
+        <div class="skills">
+          HTML · CSS · JavaScript · Python<br>
+          Complex problem solving · Project basics
+        </div>
+
+        <div class="section-title">Languages</div>
+        <div class="langs">
+          Hindi · English
+        </div>
+
+        <div class="section-title">Certifications</div>
+        <div class="certs">
+          HTML, CSS, JavaScript
+        </div>
+      </div>
+    </aside>
+
+    <!-- RIGHT -->
+    <main class="right">
+      <div class="summary" role="region" aria-label="Professional summary">
+        <strong>Professional Summary</strong>
+        <p style="margin:8px 0 0 0;">
+          Motivated and detail-oriented BCA student with strong skills in web technologies (HTML, CSS, JavaScript, Python).
+          Passionate about solving complex problems, building user-friendly applications, and continuously learning new technologies.
+        </p>
+      </div>
+
+      <section class="section" aria-labelledby="education">
+        <h3 id="education">Education</h3>
+
+        <div class="edu-item">
+          <div class="edu-left">Bachelor of Computer Applications (BCA)<br><small>Shobhit University, Gangoh</small></div>
+          <div class="edu-right">2024 – 2027<br>1st Sem: 70% · 2nd Sem: 68%</div>
+        </div>
+
+        <div class="edu-item">
+          <div class="edu-left">10+2 (Intermediate)<br><small>S.S. Inter College, Titron Saharanpur</small></div>
+          <div class="edu-right">2024<br>Marks: 68%</div>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="projects">
+        <h3 id="projects">Key Strengths</h3>
+        <ul class="clean">
+          <li>Hands-on with HTML, CSS, JavaScript and Python.</li>
+          <li>Problem solving and logical reasoning.</li>
+          <li>Quick learner — adapts to new tools and frameworks.</li>
+        </ul>
+      </section>
+
+      <section class="section" aria-labelledby="extra">
+        <h3 id="extra">Other</h3>
+        <p style="margin:6px 0; color:var(--muted); font-size:13px;">
+          Available for internships and beginner web development projects. References available on request.
+        </p>
+      </section>
+    </main>
+  </div>
+</body>
+</html>

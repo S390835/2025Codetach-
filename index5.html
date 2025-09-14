@@ -1,0 +1,425 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>JavaScript — All Notes (Variables, Arrays, DOM...)</title>
+  <style>
+    :root{--accent:#0b5cff;--muted:#555;--card:#f8f9ff}
+    html,body{height:100%;margin:0;background:white;font-family:Inter,system-ui,Segoe UI,Roboto,Arial}
+    header{padding:18px 24px;border-bottom:1px solid #eee;background:linear-gradient(180deg, rgba(255,255,255,0.9), white)}
+    header h1{margin:0;font-size:40px;color:var(--accent)}
+    .wrap{max-width:1100px;margin:22px auto;padding:0 18px;}
+    .grid{display:grid;grid-template-columns:320px 1fr;gap:20px}
+    nav{position:sticky;top:18px;height:calc(100vh - 36px);overflow:auto;padding:12px;border-radius:12px;background:#fff;border:1px solid #eee}
+    nav a{display:block;padding:8px 10px;margin:6px 0; font-size: 20px; border-radius:8px;color:var(--accent);text-decoration:none}
+    main{min-height:60vh}
+    section.card{background:var(--card);padding:18px;border-radius:12px;border:1px solid #eee;margin-bottom:18px}
+    h2{margin:0 0 10px 0;color:#0b2a66}
+    p{color:var(--muted); font-size: 20px; line-height:1.5}
+    pre{background:#0f1724;color:#e6eef8;padding:12px;border-radius:8px;overflow:auto}
+    code{font-family: "Courier New",monospace}
+    .run-row{display:flex;gap:8px;align-items:center;margin-top:10px}
+    button.run{padding:8px 12px;border-radius:8px;border:0;background:var(--accent);color:white;cursor:pointer}
+    .output{background:#111;color:#dff0d8;padding:10px;border-radius:8px;min-height:44px;margin-top:10px;white-space:pre-wrap}
+    footer{padding:18px;text-align:center;color:#777}
+    @media(max-width:880px){.grid{grid-template-columns:1fr}nav{height:auto;position:relative}}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap">
+      <h1 style="text-align: center">JavaScript tutorial</h1>
+    </div>
+      <button style="background: blue; border-radius: 10px; border: none; width:80px; padding: 8px;"><a style="text-decoration:none; color:white; background:blue;" href="w3.html">Back</a></button>
+    
+  </header>  <div class="wrap grid">
+    <nav>
+      <strong>Topics</strong>
+      <a href="#variables">Variables</a>
+      <a href="#datatype">Data Types</a>
+      <a href="#string">String</a>
+      <a href="#array">Array</a>
+      <a href="#array-methods">Array Methods</a>
+      <a href="#object">Object</a>
+      <a href="#dom">DOM</a>
+      <a href="#function">Function</a>
+      <a href="#promise">Promise</a>
+      <a href="#event">Event</a>
+      <a href="#keywords">Keywords</a>
+      <a href="#for loop">loop</a>
+      <a href="#if else">if else</a>
+      <a href="#operator">operators </a>
+      
+    </nav><main>
+  <section id="variables" class="card">
+    <h2>Variables</h2>
+    <p>In JavaScript, a variable is like a container used to store data values (numbers, strings, objects, etc.).
+It allows you to give a name to a value so you can use it later in your program.
+. Use <code>let</code>, <code>const</code> or <code>var</code>. Prefer <code>let</code> and <code>const</code> in modern code.</p>
+    <pre><code>// examples
+
+let x = 5; const name = 'Shyam'; var old = true; // function-scoped, avoid in new code
+
+x = x + 3; // 8 </code></pre> <div class="run-row"> <button class="run" data-run="runVars">Run Example</button> <div id="out-vars" class="output">Console output</div> </div> </section>
+
+<section id="datatype" class="card">
+    <h2>Data Types</h2>
+    <p>Primitive types: <code>number</code>, <code>string</code>, <code>boolean</code>, <code>null</code>, <code>undefined</code>, <code>symbol</code>, <code>bigint</code>. Objects (including arrays & functions) are complex types.</p>
+    <p>non-primitive:-Array and Object</p>
+    <pre><code>typeof 123        // 'number'
+
+typeof 'abc'      // 'string' typeof null       // 'object' (historical JS quirk) </code></pre> </section>
+
+<section id="string" class="card">
+    <h2>String</h2>
+    <p>Strings are sequences of characters. Template literals (backticks) make interpolation easy.</p>
+    <pre><code>let s = 'hello';
+
+let t = Hello, ${s.toUpperCase()}!; console.log(t); // Hello, HELLO! </code></pre> <div class="run-row"> <button class="run" data-run="runString">Run String</button> <div id="out-string" class="output">Console output</div> </div> </section>
+
+<section id="array" class="card">
+    <h2>Array</h2>
+    <p>An array is a special type of variable that can store multiple values in a single variable.
+Instead of creating many variables for each value, you can put them all inside one array.<code>[]</code>. They are objects with numeric keys and helpful methods.</p>
+    <pre><code>const arr = [1,2,3,'apple'];
+
+arr.push('mango'); console.log(arr.length); // 5 </code></pre> <div class="run-row"> <button class="run" data-run="runArray">Run Array</button> <div id="out-array" class="output">Console output</div> </div> </section>
+
+<section id="array-methods" class="card">
+    <h2>Array Methods</h2>
+    <p>Common methods: <code>map, filter, reduce, forEach, find, findIndex, slice, splice, push, pop</code>.</p>
+    <pre><code>// examples
+
+const nums = [1,2,3,4]; const squares = nums.map(n => n*n); // [1,4,9,16] const evens = nums.filter(n => n%2===0); // [2,4] const sum = nums.reduce((a,b) => a+b, 0); // 10 </code></pre> <div class="run-row"> <button class="run" data-run="runArrayMethods">Run Array Methods</button> <div id="out-array-methods" class="output">Console output</div> </div> </section>
+
+<section id="object" class="card">
+    <h2>Object</h2>
+    <p>Objects store key-value pairs. Use dot or bracket notation to access properties.</p>
+    <pre><code>const person = {name:'Rita', age:22};
+
+console.log(person.name); person.job = 'student'; </code></pre> <div class="run-row"> <button class="run" data-run="runObject">Run Object</button> <div id="out-object" class="output">Console output</div> </div> </section>
+
+<section id="dom" class="card">
+    <h2>DOM (Document Object Model)</h2>
+    <p>The DOM represents the HTML page. Use methods like <code>querySelector</code>, <code>getElementById</code>, and properties like <code>textContent</code>.</p>
+    <pre><code>// This page has elements we can select and change
+
+const title = document.querySelector('header h1'); title.textContent = 'JS Notes — Interactive'; </code></pre> <div class="run-row"> <button class="run" data-run="changeTitle">Change Header Text</button> <div id="out-dom" class="output">Action result</div> </div> </section>
+
+<section id="function" class="card">
+    <h2>Function</h2>
+    <p>Functions encapsulate behavior. Arrow functions have concise syntax and different <code>this</code> behavior.</p>
+    <pre><code>function add(a,b){return a+b}
+
+const mul = (a,b) => a*b; console.log(add(2,3), mul(2,3)); </code></pre> <div class="run-row"> <button class="run" data-run="runFunction">Run Function</button> <div id="out-fn" class="output">Console output</div> </div> </section>
+
+<section id="promise" class="card">
+    <h2>Promise</h2>
+    <p>Promises handle async operations. Use <code>then/catch/finally</code> or <code>async/await</code>.</p>
+    <pre><code>// simple promise example
+
+const p = new Promise((resolve,reject)=>{ setTimeout(()=> resolve('done after 1s'), 1000); });
+
+p.then(msg => console.log(msg));
+
+// async/await version async function waitExample(){ const res = await p; // waits for promise return res + ' (awaited)'; } </code></pre> <div class="run-row"> <button class="run" data-run="runPromise">Run Promise (1s)</button> <div id="out-promise" class="output">Console output</div> </div> </section>
+
+<section id="event" class="card">
+    <h2>Event</h2>
+    <p>Events let code respond to user actions: <code>click, input, submit, keydown</code>. Use <code>addEventListener</code>.</p>
+    <pre><code>const btn = document.createElement('button');
+
+btn.textContent = 'Click me (creates event)'; document.body.appendChild(btn); btn.addEventListener('click', ()=> alert('Button clicked!')); </code></pre> <div class="run-row"> <button class="run" data-run="createBtn">Create Click Button</button> <div id="out-event" class="output">Action result</div> </div> </section>
+
+<section id="keywords" class="card">
+    <h2>Keywords</h2>
+    <p>Important JS keywords: <code>let, const, var, function, return, if, else, for, while, class, extends, import, export, try, catch, finally, new, this, super, await, async</code>.</p>
+</section>
+    <section id="for loop" class="card">
+      <h2>for loop</h2>
+      <p>A for loop is used when you want to repeat (iterate) a block of code a certain number of times.
+It is the most commonly used loop in JavaScript.
+<br>
+
+---
+
+📌 Syntax
+
+for(initialization; condition; increment/decrement) {
+   // code to run
+}
+</p>
+<pre><code>for (let i = 1; i <= 5; i++) {
+  console.log(i);</pre></code>
+}
+
+    </section>
+    <section id="jj" class="card">
+      <h2>while loop</h2>
+      <p>while loop ek control flow statement hai jo tab tak repeat hota hai jab tak condition true hoti hai.
+Agar condition false ho jaaye, loop ruk jaata hai.<br>
+while (condition) {
+  // repeat hone wala code
+}
+
+</p>
+<pre><code>
+  let i = 1;
+while (i <= 5) {
+  console.log(i);
+  i++;
+}
+</code></pre>
+    </section>
+<section class="card">
+  <h2>for each</h2>
+  <p>for...in loop ka use object ke properties (keys) ya array ke indexes ko iterate karne ke liye hota hai.<br>
+  for (let key in object) {
+  // yahan code likho
+}
+<pre><code>
+  let student = {
+  name: "Shyam",
+  age: 19,
+  course: "BCA"
+};
+
+for (let key in student) {
+  console.log(key + " → " + student[key]);
+}
+📌 Output:
+
+name → Shyam
+age → 19
+course → BCA
+
+</code></pre>
+
+</p>
+  
+</section>
+<section id="if else" class="card">
+  <h2>condition if....else</h2>
+  <p>
+Condition ek expression hota hai jo true ya false (boolean value) return karta hai.
+
+Agar condition true hai → code chalega.
+
+Agar condition false hai → code skip ho jayega.</p>
+<h3>...if...condition</h3>
+<p>In the example below, we test two values to find out if 20 is greater than 18. If the condition is true, print some text:</p>
+<pre><code>
+  if (20 > 18) {
+  console.log("20 is greater than 18");
+}
+Output: 20 is greater then 18
+</code></pre>
+<h3>...else..if..</h3>
+<p>The else Statement
+Use the else statement to specify a block of code to be executed if the condition is false.</p>
+<pre><code>
+  if (hour < 18) {
+  greeting = "Good day";
+} else {
+  greeting = "Good evening";
+}
+</code></pre>
+</section>
+<section id="operator" class="card">
+  <h2>Operators</h2>
+  <p>Operators are for Mathematical and Logical Computations</p>
+  <pre><code>
+    1. Arithmetic Operators
+
+(Calculation ke liye)
+
+Operator	Meaning	Example	Result
+
++	Addition	5 + 2	7
+-	Subtraction	5 - 2	3
+*	Multiplication	5 * 2	10
+/	Division	10 / 2	5
+%	Modulus (Remainder)	10 % 3	1
+**	Exponentiation	2 ** 3	8
+++	Increment	let a=5; a++	6
+--	Decrement	let a=5; a--	4
+
+
+
+---
+
+2. Assignment Operators
+
+(Variable ko value assign karne ke liye)
+
+Operator	Example	Meaning
+
+=	a = 10	Assign 10 to a
++=	a += 5	a = a + 5
+-=	a -= 3	a = a - 3
+*=	a *= 2	a = a * 2
+/=	a /= 2	a = a / 2
+%=	a %= 3	a = a % 3
+
+
+
+---
+
+3. Comparison Operators
+
+(Condition check karne ke liye – true / false return karte hain)
+
+Operator	Example	Result
+
+==	5 == "5"	true (only value check)
+===	5 === "5"	false (value + type check)
+!=	5 != 3	true
+!==	5 !== "5"	true
+>	7 > 5	true
+<	7 < 5	false
+>=	5 >= 5	true
+<=	3 <= 2	false
+
+
+
+---
+
+4. Logical Operators
+
+(Multiple conditions combine karne ke liye)
+
+Operator	Example	Result
+
+&& (AND)	(5 > 2 && 3 < 4)	true
+`		` (OR)
+! (NOT)	!(5 > 2)	false
+
+
+
+---
+
+5. Bitwise Operators
+
+(Binary numbers ke sath work karte hain)
+
+Operator	Example	Result
+
+& (AND)	5 & 1	1
+`	` (OR)	`5
+^ (XOR)	5 ^ 1	4
+~ (NOT)	~5	-6
+<< (Left shift)	5 << 1	10
+>> (Right shift)	5 >> 1	2
+
+
+
+---
+
+6. Ternary Operator (Conditional Operator)
+
+Shortcut of if-else.
+
+let age = 18;
+let result = (age >= 18) ? "Adult" : "Minor";
+console.log(result);
+
+📌 Output: Adult
+
+
+---
+
+7. Type Operators
+
+Operator	Use	Example	Result
+
+typeof	Variable ka type check karne ke liye	typeof "hello"	"string"
+instanceof	Object ka type check karne ke liye	arr instanceof Array	true
+
+
+
+  </code></pre>
+</section>
+
+  
+
+  <footer>
+     © 2025 All rights reserved 
+  </footer>
+</main>
+
+  </div>  <script>
+    // Helper to write to outputs
+    function write(id, text){document.getElementById(id).textContent = text}
+
+    document.querySelectorAll('button.run').forEach(btn => {
+      btn.addEventListener('click', ()=>{
+        const action = btn.getAttribute('data-run');
+        try{ window[action](); } catch(e){ write(btn.nextElementSibling.id || 'out-vars', 'Error: '+e.message)}
+      });
+    });
+
+    // Run implementations
+    window.runVars = function(){
+      let x = 5; const name = 'Shyam'; var old = true; x = x + 3;
+      write('out-vars', `x=${x}, name=${name}, old=${old}`);
+    }
+
+    window.runString = function(){
+      let s = 'hello'; let t = `Hello, ${s.toUpperCase()}!`;
+      write('out-string', t);
+    }
+
+    window.runArray = function(){
+      const arr = [1,2,3,'apple']; arr.push('mango');
+      write('out-array', `arr=[${arr.join(', ')}], length=${arr.length}`);
+    }
+
+    window.runArrayMethods = function(){
+      const nums = [1,2,3,4];
+      const squares = nums.map(n => n*n);
+      const evens = nums.filter(n => n%2===0);
+      const sum = nums.reduce((a,b)=>a+b,0);
+      write('out-array-methods', `squares=[${squares}], evens=[${evens}], sum=${sum}`);
+    }
+
+    window.runObject = function(){
+      const person = {name:'Rita', age:22}; person.job='student';
+      write('out-object', JSON.stringify(person, null, 2));
+    }
+
+    window.changeTitle = function(){
+      const title = document.querySelector('header h1');
+      title.textContent = 'JS Notes — Interactive (changed)';
+      write('out-dom', 'Header text changed');
+    }
+
+    window.runFunction = function(){
+      function add(a,b){return a+b}
+      const mul = (a,b) => a*b;
+      write('out-fn', `add(2,3)=${add(2,3)}, mul(2,3)=${mul(2,3)}`);
+    }
+
+    window.runPromise = function(){
+      const outId = 'out-promise';
+      const p = new Promise((resolve)=>{
+        setTimeout(()=> resolve('done after 1s'), 1000);
+      });
+      write(outId, 'Waiting for promise...');
+      p.then(msg => write(outId, msg + ' (then)'))
+       .catch(err => write(outId, 'Error: '+err))
+    }
+
+    window.createBtn = function(){
+      const outId = 'out-event';
+      const btn = document.createElement('button');
+      btn.textContent = 'Click me (created)';
+      btn.style.marginTop = '8px';
+      btn.addEventListener('click', ()=> write(outId, 'You clicked the created button'));
+      document.getElementById(outId).appendChild(btn);
+      write(outId, 'Button appended below:');
+    }
+
+  </script></body>
+</html>

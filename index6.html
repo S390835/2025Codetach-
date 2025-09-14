@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SQL Notes</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f5f5f5;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      background: #222;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+    section {
+      padding: 20px;
+      max-width: 900px;
+      margin: auto;
+      background: white;
+      margin-top: 20px;
+      border-radius: 10px;
+      box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+    }
+    h2 {
+      color: #333;
+      border-bottom: 2px solid #ddd;
+      padding-bottom: 5px;
+    }
+    code {
+      background: #eee;
+      padding: 5px 8px;
+      border-radius: 5px;
+      display: block;
+      margin: 10px 0;
+      white-space: pre-wrap;
+    }
+    footer {
+      background: #222;
+      color: white;
+      text-align: center;
+      padding: 15px;
+      margin-top: 20px;
+    }
+    #back{
+      display: flex;
+      align-items: flex-start;
+      justify-content: flex-start;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>SQL tutorial</h1></h1>
+    <div id="back">
+    <button><a style="text-decoration: none; font-size: 18px; color: black;" href="w3.html">Back</a></button>
+    </div>
+  </header>
+
+  <section>
+    <h2>1. What is SQL?</h2>
+    <p><b>Definition:</b> SQL (Structured Query Language) ek standard language hai jo databases ke saath interact karne ke liye use hoti hai.</p>
+    <p><b>Example:</b></p>
+    <code>
+      SELECT * FROM Students;
+    </code>
+  </section>
+  <section>
+    <h2>Sql syntax</h2>
+    <p><b>Sql statement: </b>
+Most of the actions you need to perform on a database are done with SQL statements.
+
+SQL statements consist of keywords that are easy to understand.
+
+The following SQL statement returns all records from a table named "Customers":</p>
+<p><b>Example: </b>
+<code>SELECT * FROM Customers;</code>
+</p>
+<p><b>Keep in Mind That...</b>
+SQL keywords are NOT case sensitive: select is the same as SELECT</p>
+<p><b>Some of The Most Important SQL Commands:</b>
+SELECT - extracts data from a database<br>
+UPDATE - updates data in a database
+<br>
+DELETE - deletes data from a database<br>
+INSERT INTO - inserts new data into a database<br>
+CREATE DATABASE - creates a new database<br>
+ALTER DATABASE - modifies a database
+<br>
+CREATE TABLE - creates a new table
+<br>
+ALTER TABLE - modifies a table
+<br>
+DROP TABLE - deletes a table
+<br>
+CREATE INDEX - creates an index (search key)
+<br>
+DROP INDEX - deletes an index</p>
+  </section>
+  <section>
+    <p>
+    <h2>The SQL SELECT DISTINCT Statement</h2><br>
+The SELECT DISTINCT statement is used to return only distinct (different) values.
+<br>
+<b>Example:</b>Get your own SQL Server
+Select all the different countries from the "Customers" table:
+<code>
+SELECT DISTINCT Country FROM Customers;</code>
+Inside a table, a column often contains many duplicate values; and sometimes you only want to list the different (distinct) values.<br>
+
+<b>syntax:</b>
+<code>
+SELECT DISTINCT column1, column2, ...
+FROM table_name;
+</code>
+    </p>
+  </section>
+  <section>
+    <h2>SQL Where clause</h2>
+    <p><b>The sql where clause: </b>The WHERE clause is used to filter records.
+
+It is used to extract only those records that fulfill a specified condition.
+
+<b>Example:</b>
+<br>Get your own SQL Server
+Select all customers from Mexico:
+<code>
+SELECT * FROM Customers
+WHERE Country='Mexico';</code>
+<b>Text Fields vs. Numeric Fields</b>
+<br>
+SQL requires single quotes around text values (most database systems will also allow double quotes).
+
+However, numeric fields should not be enclosed in quotes:
+<br>
+<b>Example:</b>
+<code>
+SELECT * FROM Customers
+WHERE CustomerID=1;
+</code>
+Operators in The WHERE Clause
+You can use other operators than the = operator to filter the search.
+
+<b>Example:</b>
+Select all customers with a CustomerID greater than 80:
+<code>
+SELECT * FROM Customers
+WHERE CustomerID > 80;
+</code>
+<b>Operators</b>
+<br>
+<b>The following operators can be used in the WHERE clause:</b>
+
+Operator	Description
+<br>
+<b>Example:</b>
+=	Equal	<br>
+>	Greater than<br>
+<	Less than	<br>
+>=	Greater than or equal	<br>
+<=	Less than or equal	<br>
+<>	Not equal. Note: In some versions of SQL this operator may be written as<br>!=	
+BETWEEN	Between a certain range	
+LIKE	Search for a pattern	
+
+
+</p>
+
+
+  </section>
+
+  <section>
+    <h2>2. CREATE Statement</h2>
+    <p><b>Definition:</b> Database objects (table, database) banane ke liye use hota hai.</p>
+    <code>
+      CREATE TABLE Students (
+        ID INT PRIMARY KEY,
+        Name VARCHAR(50),
+        Age INT
+      );
+    </code>
+  </section>
+
+  <section>
+    <h2>3. INSERT Statement</h2>
+    <p><b>Definition:</b> Table me new records insert karne ke liye use hota hai.</p>
+    <code>
+      INSERT INTO Students (ID, Name, Age) 
+      VALUES (1, 'Rahul', 21);
+    </code>
+  </section>
+
+  <section>
+    <h2>4. SELECT Statement</h2>
+    <p><b>Definition:</b> Table se data retrieve karne ke liye use hota hai.</p>
+    <code>
+      SELECT Name, Age 
+      FROM Students
+      WHERE Age > 20;
+    </code>
+  </section>
+
+  <section>
+    <h2>5. UPDATE Statement</h2>
+    <p><b>Definition:</b> Existing records ko update karne ke liye use hota hai.</p>
+    <code>
+      UPDATE Students 
+      SET Age = 22 
+      WHERE ID = 1;
+    </code>
+  </section>
+
+  <section>
+    <h2>6. DELETE Statement</h2>
+    <p><b>Definition:</b> Table me se data delete karne ke liye use hota hai.</p>
+    <code>
+      DELETE FROM Students 
+      WHERE ID = 1;
+    </code>
+  </section>
+
+  <section>
+    <h2>7. JOINS</h2>
+    <p><b>Definition:</b> Joins ka use multiple tables se related data combine karne ke liye hota hai.</p>
+    <p><b>Example (INNER JOIN):</b></p>
+    <code>
+      SELECT Students.Name, Courses.CourseName 
+      FROM Students
+      INNER JOIN Courses
+      ON Students.ID = Courses.StudentID;
+    </code>
+  </section>
+
+  <section>
+    <h2>8. GROUP BY & HAVING</h2>
+    <p><b>Definition:</b> GROUP BY similar records ko ek group me laata hai, aur HAVING condition apply karta hai groups par.</p>
+    <code>
+      SELECT Age, COUNT(*) AS TotalStudents
+      FROM Students
+      GROUP BY Age
+      HAVING COUNT(*) > 1;
+    </code>
+  </section>
+
+  <footer>
+    &copy; 2025 | All Rights Reserved
+  </footer>
+
+</body>
+</html>

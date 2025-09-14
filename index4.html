@@ -1,0 +1,139 @@
+<!DOCTYPE html><html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Complete CSS Notes</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #f4f6f9;
+      margin: 0;
+      padding: 0;
+      line-height: 1.6;
+    }
+    header {
+      background: linear-gradient(90deg, #4e54c8, #8f94fb);
+      color: white;
+      padding: 20px;
+      text-align: center;
+      font-size: 2em;
+      font-weight: bold;
+      box-shadow: 0 3px 6px rgba(0,0,0,0.2);
+    }
+    section {
+      margin: 20px;
+      padding: 20px;
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+    section h2 {
+      color: #4e54c8;
+      margin-bottom: 10px;
+    }
+    .definition {
+      background: #e8f0fe;
+      padding: 12px;
+      border-left: 5px solid #4e54c8;
+      border-radius: 8px;
+      margin-bottom: 15px;
+    }
+    ul {
+      margin: 10px 0;
+      padding-left: 20px;
+    }
+    code {
+      background: #2d2d2d;
+      color: #f8f8f2;
+      padding: 4px 8px;
+      border-radius: 6px;
+      font-family: Consolas, monospace;
+    }
+    pre {
+      background: #2d2d2d;
+      color: #f8f8f2;
+      padding: 12px;
+      border-radius: 8px;
+      overflow-x: auto;
+    }
+    .note-box {
+      background: #fff3cd;
+      padding: 10px;
+      border-left: 5px solid #ffca2c;
+      border-radius: 8px;
+      margin: 15px 0;
+    }
+    footer {
+      text-align: center;
+      padding: 15px;
+      background: linear-gradient(90deg, #8f94fb, #4e54c8);
+      color: white;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body><header>CSS tutorial</header><button style="background: red; border:none;"><a style="text-decoration:none; color: white; font-weight:bold;margin: 10px 10px; font-size: 20px" href="w3.html">Back</a></button><section>
+  <h2>1. CSS Units</h2>
+  <div class="definition">Units define the size of elements in CSS. They are of two types: absolute and relative.</div>
+  <ul>
+    <li><b>Absolute Units:</b> px, cm, mm, in, pt, pc</li>
+    <li><b>Relative Units:</b> %, em, rem, vw, vh, vmin, vmax</li>
+  </ul>
+  <div class="note-box">Absolute units are fixed, while relative units adapt to screen size or parent elements.</div>
+</section><section>
+  <h2>2. Flexbox</h2>
+  <div class="definition">Flexbox is a one-dimensional layout system used to align and distribute space among items in a container.</div>
+  <ul>
+    <li><b>flex-direction:</b> row, row-reverse, column, column-reverse</li>
+    <li><b>justify-content:</b> flex-start, flex-end, center, space-between, space-around, space-evenly</li>
+    <li><b>align-items:</b> stretch, flex-start, flex-end, center, baseline</li>
+    <li><b>align-content:</b> space-between, space-around, stretch, center, flex-start, flex-end</li>
+  </ul>
+  <pre><code>.container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}</code></pre>
+</section><section>
+  <h2>3. Media Queries</h2>
+  <div class="definition">Media queries are used to apply CSS rules based on device type, screen size, or orientation.</div>
+  <ul>
+    <li>@media screen</li>
+    <li>@media print</li>
+    <li>@media (max-width: 768px)</li>
+  </ul>
+  <pre><code>@media (max-width: 768px) {
+  body {
+    background: lightblue;
+  }
+}</code></pre>
+</section><section>
+  <h2>4. Transitions & Animations</h2>
+  <div class="definition">Transitions and animations are used to create smooth visual effects in CSS.</div>
+  <ul>
+    <li><b>Transition Properties:</b> transition-property, transition-duration, transition-timing-function, transition-delay</li>
+    <li><b>Animation Properties:</b> @keyframes, animation-name, animation-duration, animation-iteration-count</li>
+  </ul>
+  <pre><code>div {
+  transition: background 0.5s ease-in-out;
+}@keyframes example { 0% {background: red;} 100% {background: yellow;} }</code></pre>
+
+</section><section>
+  <h2>5. CSS Grid</h2>
+  <div class="definition">CSS Grid is a two-dimensional layout system for creating responsive and complex layouts.</div>
+  <ul>
+    <li><b>grid-template-rows / columns</b></li>
+    <li><b>grid-gap</b></li>
+    <li><b>justify-items / align-items</b></li>
+    <li><b>grid-area</b></li>
+  </ul>
+  <pre><code>.grid-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 10px;
+}</code></pre>
+</section><footer>
+  © 2025 All rights reserved 🌟
+</footer></body>
+</html>

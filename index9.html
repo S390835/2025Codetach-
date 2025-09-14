@@ -1,0 +1,233 @@
+<!doctype html>
+
+<html lang="hi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>C</title>
+  <style>
+    :root{--bg:#0f1724;--card:#0b1220;--accent:#06b6d4;--muted:#9aa4b2;--glass: rgba(255,255,255,0.03)}
+    *{box-sizing:border-box}
+    body{font-family:Inter, system-ui, -apple-system, Roboto, 'Noto Sans', Arial; margin:0; background:linear-gradient(180deg,#071226 0%, #0b1320 100%); color:#e6eef6}
+    header{padding:20px; display:flex; gap:16px; align-items:center; border-bottom:1px solid rgba(255,255,255,0.04)}
+    .brand{font-weight:700; letter-spacing:0.4px}
+    .container{max-width:1100px; margin:28px auto; padding:16px}
+    .grid{display:grid; grid-template-columns:300px 1fr; gap:20px}
+    nav{background:var(--card); padding:16px; border-radius:12px; height:calc(100vh - 160px); overflow:auto}
+    nav input{width:100%; padding:10px; border-radius:8px; border:1px solid rgba(255,255,255,0.04); background: white; color:inherit}
+    nav ul{list-style:none; padding:10px 0; margin:0}
+    nav li{padding:8px 6px; border-radius:8px}
+    nav a{color:var(--muted); text-decoration:none; display:block}
+    nav a:hover{color:var(--accent)}
+    main{padding:16px; background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent); border-radius:12px; min-height:60vh}
+    .section{margin-bottom:28px; padding:14px; background:rgba(255,255,255,0.02); border-radius:10px}
+    h2{margin:6px 0 12px}
+    pre{background:#061021; padding:12px; border-radius:8px; overflow:auto}
+    code{font-family:source-code-pro, Menlo, monospace}
+    .actions{display:flex; gap:8px; margin-left:auto}
+    button{background:var(--accent); border:none; padding:8px 12px; border-radius:8px; color:#062024; font-weight:600; cursor:pointer}
+    .muted{color:var(--muted)}
+    .small{font-size:0.9rem}
+    .example{background:rgba(6,182,212,0.05); padding:10px; border-radius:8px}
+    .copybtn{background:transparent; border:1px solid rgba(255,255,255,0.06); color:var(--muted); padding:6px 8px; border-radius:6px; cursor:pointer}
+    @media(max-width:900px){.grid{grid-template-columns:1fr} nav{height:auto}}
+  </style>
+</head>
+<body>
+  <header>
+        <div class="brand"><h1>C Language tutorial</h1></div>
+      </div>
+    </div>
+  
+  </header>  <div class="container">
+    <div class="grid">
+      <nav>
+        <input id="navSearch" placeholder="Search topic " oninput="filterNav()" />
+        <ul id="toc">
+          <li><a href="#intro">Introduction & History</a></li>
+          <li><a href="#setup">Setup & Hello World</a></li>
+          <li><a href="#basics">Basic Syntax</a></li>
+          <li><a href="#types">Data Types & Variables</a></li>
+          <li><a href="#operators">Operators</a></li>
+          <li><a href="#control">Control Flow</a></li>
+          <li><a href="#functions">Functions</a></li>
+          <li><a href="#arrays">Arrays</a></li>
+          <li><a href="#pointers">Pointers</a></li>
+          <li><a href="#strings">Strings</a></li>
+          <li><a href="#structs">Structs & Enums</a></li>
+          <li><a href="#memory">Dynamic Memory</a></li>
+          <li><a href="#files">File I/O</a></li>
+          <li><a href="#preproc">Preprocessor & Macros</a></li>
+          <li><a href="#common">Common Examples</a></li>
+          <li><a href="#cheatsheet">Cheatsheet</a></li>
+          <li><a href="#practice">Practice Questions</a></li>
+        </ul>
+      </nav><main id="content">
+    <section id="intro" class="section">
+      <h2>Introduction &amp; History</h2>
+      <p>C (1972) — Dennis Ritchie, Bell Labs. Procedural, compiled language used for systems programming. Foundation for C++, Objective-C, and many modern languages.</p>
+    </section>
+
+    <section id="setup" class="section">
+      <h2>Setup &amp; Hello World</h2>
+      <p class="muted small">GCC example (Linux / WSL / Mac):</p>
+      <pre><code>// hello.c
+
+#include <stdio.h>
+
+int main(void) { printf("Hello, world!\n"); return 0; }
+
+// Compile: gcc hello.c -o hello // Run: ./hello </code></pre> </section>
+
+<section id="basics" class="section">
+      <h2>Basic Syntax</h2>
+      <ul>
+        <li>Statements end with <code>;</code></li>
+        <li>Blocks with <code>{ }</code></li>
+        <li>Comments: <code>// line</code> and <code>/* block */</code></li>
+      </ul>
+    </section>
+
+    <section id="types" class="section">
+      <h2>Data Types &amp; Variables</h2>
+      <p>Primitive types: <code>int, char, float, double</code>. Modifiers: <code>short, long, signed, unsigned</code>.</p>
+      <pre><code>int a = 10;
+
+char c = 'A'; float f = 3.14f; double d = 2.71828; </code></pre> </section>
+
+<section id="operators" class="section">
+      <h2>Operators</h2>
+      <p>Arithmetic, relational, logical, bitwise, assignment, ternary.</p>
+      <pre><code>int x = (a > b) ? a : b; // ternary
+
+x &= 0xFF; // bitwise AND assign </code></pre> </section>
+
+<section id="control" class="section">
+      <h2>Control Flow</h2>
+      <p>if / else, switch, for, while, do-while, break, continue</p>
+      <pre><code>for (int i = 0; i &lt; n; ++i) {
+printf("%d\n", i);
+
+} </code></pre> </section>
+
+<section id="functions" class="section">
+      <h2>Functions</h2>
+      <p>Declaration (prototype) and definition. Pass by value (C has no references).</p>
+      <pre><code>int add(int a, int b); // prototype
+
+int add(int a, int b) { return a + b; } </code></pre> </section>
+
+<section id="arrays" class="section">
+      <h2>Arrays</h2>
+      <p>Fixed-size, contiguous memory. Indexing starts at 0.</p>
+      <pre><code>int arr[5] = {1,2,3,4,5};
+
+printf("%d", arr[2]); // prints 3 </code></pre> </section>
+
+<section id="pointers" class="section">
+      <h2>Pointers</h2>
+      <p>Pointers store addresses. Use <code>&amp;</code> (address-of) and <code>*</code> (dereference).</p>
+      <pre><code>int a = 10;
+
+int *p = &a;  // p points to a printf("%d", p); // prints 10 </code></pre> <p class="small muted">Important: pointer arithmetic, NULL, void, pointer to pointer.</p> </section>
+
+<section id="strings" class="section">
+      <h2>Strings</h2>
+      <p>C strings are arrays of <code>char</code> terminated by <code>'\0'</code>.</p>
+      <pre><code>char s[] = "hello"; // 6 bytes including '\0'
+
+printf("%s", s); </code></pre> </section>
+
+<section id="structs" class="section">
+      <h2>Structs &amp; Enums</h2>
+      <pre><code>struct Point { int x; int y; };
+
+struct Point p = {1,2};
+
+enum Color { RED, GREEN, BLUE }; </code></pre> </section>
+
+<section id="memory" class="section">
+      <h2>Dynamic Memory</h2>
+      <p>Use <code>malloc</code>, <code>calloc</code>, <code>realloc</code>, and <code>free</code>. Always check return value.</p>
+      <pre><code>int *p = malloc(10 * sizeof(int));
+
+if (!p) { perror("malloc"); exit(1); } // use p free(p); </code></pre> </section>
+
+<section id="files" class="section">
+      <h2>File I/O</h2>
+      <pre><code>FILE *f = fopen("data.txt", "r");
+
+if (f) { char buf[100]; while (fgets(buf, sizeof buf, f)) puts(buf); fclose(f); } </code></pre> </section>
+
+<section id="preproc" class="section">
+      <h2>Preprocessor &amp; Macros</h2>
+      <pre><code>#include &lt;stdio.h&gt;
+
+#define PI 3.14159 #define MAX(a,b) ((a) > (b) ? (a) : (b)) </code></pre> <p class="small muted">Be careful with macros and side-effects.</p> </section>
+
+<section id="common" class="section">
+      <h2>Common Examples</h2>
+      <div class="example">
+        <strong>Swap two numbers (using temporary):</strong>
+        <pre><code>void swap(int *a, int *b) {
+int t = *a; *a = *b; *b = t;
+
+} </code></pre> </div> <div class="example" style="margin-top:10px"> <strong>Factorial (iterative):</strong> <pre><code>int fact(int n) { int r = 1; for (int i = 2; i <= n; ++i) r *= i; return r; } </code></pre> </div> </section>
+
+<section id="cheatsheet" class="section">
+      <h2>Cheatsheet</h2>
+      <ul>
+        <li><code>sizeof(type)</code> — size in bytes</li>
+        <li><code>&amp;var</code> — address</li>
+        <li><code>*ptr</code> — dereference</li>
+        <li>Strings: <code>strlen, strcpy, strcat, strcmp</code> from <code>&lt;string.h&gt;</code></li>
+      </ul>
+    </section>
+
+    <section id="practice" class="section">
+      <h2>Practice Questions</h2>
+      <ol>
+        <li>Write program to reverse a string without library functions.</li>
+        <li>Implement a singly linked list with insert/delete/search.</li>
+        <li>File I/O: count words in a text file.</li>
+      </ol>
+    </section>
+
+    <footer class="muted small">&copy; 2025 all rights reserved</footer>
+  </main>
+</div>
+
+  </div>  <script>
+    function printPage(){window.print()}
+    function filterNav(){
+      const q = document.getElementById('navSearch').value.toLowerCase();
+      document.querySelectorAll('#toc li').forEach(li => {
+        const a = li.innerText.toLowerCase();
+        li.style.display = a.includes(q) ? 'block' : 'none';
+      })
+    }
+    function expandAll(){
+      document.querySelectorAll('.section').forEach(s => s.style.display='block')
+      window.scrollTo(0,0)
+    }
+    function collapseAll(){
+      // collapse content paragraphs but keep headers visible
+      document.querySelectorAll('.section').forEach(s => {
+        // collapse to show only the heading
+        // we achieve by hiding children except h2
+        Array.from(s.children).forEach(ch => {
+          if(ch.tagName !== 'H2') ch.style.display = 'none';
+        })
+      })
+      window.scrollTo(0,0)
+    }
+    // allow clicking TOC to expand section fully
+    document.querySelectorAll('#toc a').forEach(a => a.addEventListener('click', e => {
+      setTimeout(()=>{
+        const id = a.getAttribute('href').slice(1);
+        const s = document.getElementById(id);
+        if(s) Array.from(s.children).forEach(ch=>ch.style.display='block');
+      },50);
+    }));
+  </script></body>
+</html>

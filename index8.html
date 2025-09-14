@@ -1,0 +1,211 @@
+<?php
+// PHP Notes Webpage
+// Save this file as PHP_Notes_Webpage.php and run via a local PHP server (XAMPP, MAMP, or: php -S localhost:8000)
+?><!doctype html>
+
+<html lang="hi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>PHP Notes </title>
+  <style>
+    /* Simple clean styling — white background, soft cards */
+    :root{--card-bg:#ffffff;--page-bg:#f7f8fb;--accent:#0b76ef}
+    body{font-family:Segoe UI, Roboto, "Noto Sans", Arial, sans-serif;background:var(--page-bg);margin:0;padding:24px;color:#111}
+    .container{max-width:1000px;margin:0 auto}
+    header{display:flex;align-items:center;gap:16px}
+    h1{margin:0;font-size:28px}
+    p.lead{color:#444;margin-top:4px}
+    nav{margin-top:18px}
+    .card{background:var(--card-bg);border-radius:12px;box-shadow:0 6px 18px rgba(20,20,50,0.06);padding:20px;margin:18px 0}
+    .toc a{display:inline-block;margin:6px 10px;padding:6px 10px;background:#f0f6ff;border-radius:8px;color:var(--accent);text-decoration:none}
+    pre{background:#0f1724;color:#e6eef8;padding:12px;border-radius:8px;overflow:auto;font-family:Consolas,monospace;font-size:13px}
+    code{font-family:Consolas,monospace}
+    h2{margin-top:6px}
+    .example{border-left:4px solid #e6eef8;padding-left:12px;margin:10px 0}
+    footer{font-size:13px;color:#666;margin-top:18px}
+    .badge{display:inline-block;background:#eef6ff;color:var(--accent);padding:4px 8px;border-radius:999px;font-weight:600;margin-left:8px}
+    .small{font-size:14px;color:#555}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div>
+        <h1><span class="badge">PHP tutorial</span></h1>
+      </div>
+    </header><nav class="card toc">
+  <strong>Table of Contents:</strong><br>
+  <a href="#intro">Introduction</a>
+  <a href="#syntax">Syntax & Basic</a>
+  <a href="#variables">Variables & Data Types</a>
+  <a href="#operators">Operators</a>
+  <a href="#control">Control Structures</a>
+  <a href="#functions">Functions</a>
+  <a href="#arrays">Arrays</a>
+  <a href="#strings">Strings</a>
+  <a href="#forms">Forms & $_GET/$_POST</a>
+  <a href="#file">File Handling</a>
+  <a href="#session">Sessions & Cookies</a>
+  <a href="#oop">OOP in PHP</a>
+  <a href="#mysql">MySQL (PDO) Example</a>
+  <a href="#useful">Useful Built-in Functions</a>
+  <a href="#exercises">Exercises</a>
+</nav>
+
+<section id="intro" class="card">
+  <h2>1.(Introduction)</h2>
+  <p>PHP is a server scripting language, and a powerful tool for making dynamic and interactive Web pages.
+
+PHP is a widely-used, free, and efficient alternative to competitors such as Microsoft's ASP.<code>.php</code></p>
+  <div class="small">Run: XAMPP/WAMP/MAMP if PHP server: <code>php -S localhost:8000</code></div>
+</section>
+
+<section id="syntax" class="card">
+  <h2>2. Basic syntax</h2>
+  <p>PHP code <code>&lt;?php ... ?&gt;</code> always written under the tag</p>
+  <pre><code>&lt;?php
+
+//  PHP comment echo "Hello, World!"; // output ?> </code></pre> </section>
+
+<section id="variables" class="card">
+  <h2>3. Variables & Data Types</h2>
+  <p>A<code>$</code> variable is like a container used to store data (such as numbers, text, arrays, etc.) so we can reuse it in our program.
+
+In PHP, variables always start with a $ (dollar sign).</p>
+  <pre><code>&lt;?php
+
+$greeting = "Namaste"; // string $age = 20; // integer $price = 99.99; // float $is_active = true; // boolean $fruits = ["apple","mango"]; // array ?> </code></pre> <p class="small">Useful functions: <code>gettype($var)</code>, <code>var_dump($var)</code>, <code>isset()</code>, <code>empty()</code></p> </section>
+
+<section id="operators" class="card">
+  <h2>4. Operators</h2>
+  <p>Arithmetic: <code>+ - * / %</code> | Assignment: <code>= += -=</code> | Comparison: <code>== === != !== &lt; &gt; &lt;= &gt;=</code></p>
+  <pre><code>&lt;?php
+
+$a = 5; $b = 2; $sum = $a + $b; $isSame = ($a == '5'); // true $isIdentical = ($a === '5'); // false ?> </code></pre> </section>
+
+<section id="control" class="card">
+  <h2>5. Control Structures</h2>
+  <h3>if / else</h3>
+  <pre><code>&lt;?php
+
+$score = 75; if($score >= 90){ echo "A grade"; }elseif($score >= 75){ echo "B grade"; }else{ echo "C/Fail"; } ?> </code></pre>
+
+<h3>switch</h3>
+  <pre><code>&lt;?php
+
+$day = 3; switch($day){ case 1: echo "Monday"; break; case 2: echo "Tuesday"; break; default: echo "Other"; break; } ?> </code></pre>
+
+<h3>Loops: for, while, foreach</h3>
+  <pre><code>&lt;?php
+
+for($i=1;$i<=5;$i++){ echo $i . "\n"; }
+
+$fruits = ['a','b','c']; foreach($fruits as $f){ echo $f; } ?> </code></pre> </section>
+
+<section id="functions" class="card">
+  <h2>6. Functions</h2>
+  <p>A<code>function</code>function is a block of code that performs a specific task.
+
+You define it once.
+
+You can reuse it multiple times in your program.</p>
+  <pre><code>&lt;?php
+
+function add($x,$y){ return $x+$y; } echo add(4,5); // 9 ?> </code></pre> <p class="small">Variable scope: local, global (<code>global $var</code>), static variables (<code>static $count</code>).</p> </section>
+
+<section id="arrays" class="card">
+  <h2>7. Arrays</h2>
+  <p>Indexed arrays, associative arrays, multidimensional arrays</p>
+  <pre><code>&lt;?php
+
+// Indexed $colors = ['red','green']; // Associative $user = ['name' => 'Ravi', 'age' => 22]; // Multidimensional $matrix = [[1,2],[3,4]];
+
+// Common functions count($colors); array_push($colors,'blue'); array_pop($colors); ?> </code></pre> </section>
+
+<section id="strings" class="card">
+  <h2>8. Strings</h2>
+  <p>Concatenation: <code>.</code> operator. Double quotes interpret variables, single quotes don't.</p>
+  <pre><code>&lt;?php
+
+$name = 'Mohan'; echo "Hello $name"; // variable parsed echo 'Hello '.$name; // concatenation
+
+// Useful: strlen, strpos, substr, str_replace ?> </code></pre> </section>
+
+<section id="forms" class="card">
+  <h2>9. Forms &amp; \$_GET / \$_POST</h2>
+  <p>A<code></code> <code> form is used to collect data from users (like name, email, password, etc.).
+
+Forms are created with HTML.
+
+The data entered in the form is processed using PHP.</code> superglobals</p>
+  <pre><code>&lt;!-- HTML form example --&gt;
+
+<form method="post" action=""> <input name="name" /> <button type="submit">Send</button> </form>
+
+<?php if($_SERVER['REQUEST_METHOD'] === 'POST'){ $name = $_POST['name'] ?? ''; echo "Hello: " . htmlspecialchars($name); } ?> </code></pre> <p class="small">Security: always sanitize/validate input. Use <code>htmlspecialchars()</code> to prevent XSS. For DB use prepared statements (see PDO section).</p> </section>
+
+<section id="file" class="card">
+  <h2>10. File Handling</h2>
+  <pre><code>&lt;?php
+
+// Read file $data = file_get_contents('data.txt'); // Write file file_put_contents('data.txt', "Hello\n", FILE_APPEND);
+
+// fopen / fread / fwrite / fclose also available ?> </code></pre> </section>
+
+<section id="session" class="card">
+  <h2>11. Sessions &amp; Cookies</h2>
+  <pre><code>&lt;?php
+
+// Start session session_start(); $_SESSION['user'] = 'Mohan';
+
+// Cookie setcookie('theme','dark', time()+3600); // 1 hour ?> </code></pre> <p class="small">Session cookie and server-side session storage using authentication normal</p> </section>
+
+<section id="oop" class="card">
+  <h2>12. Object-Oriented Programming (OOP)</h2>
+  <pre><code>&lt;?php
+
+class Person { public $name; private $age; public function __construct($name,$age){ $this->name = $name; $this->age = $age; } public function greet(){ return "Hello, " . $this->name; } }
+
+$p = new Person('Anita',25); echo $p->greet(); ?> </code></pre> <p class="small">Concepts: visibility(public/private/protected), inheritance, interfaces, traits, magic methods (__construct, __destruct, __get, __set, __call).</p> </section>
+
+<section id="mysql" class="card">
+  <h2>13. MySQL (PDO) Basic example</h2>
+  <p>PDO use do careful  (prepared statements)।</p>
+  <pre><code>&lt;?php
+
+// PDO connection example try{ $pdo = new PDO('mysql:host=localhost;dbname=testdb;charset=utf8','root',''); $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+// Prepared statement $stmt = $pdo->prepare('SELECT * FROM users WHERE id = :id'); $stmt->execute(['id' => 1]); $user = $stmt->fetch(PDO::FETCH_ASSOC); var_dump($user); }catch(PDOException $e){ echo 'DB Error: ' . $e->getMessage(); } ?> </code></pre> <p class="small">Never put raw user input directly into SQL — always use prepared statements.</p> </section>
+
+<section id="useful" class="card">
+  <h2>14. Useful Built-in Functions &amp; Tips</h2>
+  <ul>
+    <li><code>include / require / include_once / require_once</code> — code reuse</li>
+    <li><code>header('Location: page.php')</code> — redirect (use before output)</li>
+    <li><code>json_encode / json_decode</code> — work with JSON</li>
+    <li><code>password_hash / password_verify</code> — store passwords securely</li>
+    <li><code>filter_var</code> — validation helpers (email, int)</li>
+  </ul>
+</section>
+
+<section id="exercises" class="card">
+  <h2>15. Exercises / Practice</h2>
+  <ol>
+    <li>Create a form to accept name and email — validate and save to a CSV file.</li>
+    <li>Build a simple login system using sessions (users table, password_hash).</li>
+    <li>Make a CRUD app (Create/Read/Update/Delete) for a <code>books</code> table using PDO.</li>
+  </ol>
+  <div class="example">
+    <strong>Quick Example — CSV save:</strong>
+    <pre><code>&lt;?php
+
+if($_SERVER['REQUEST_METHOD']==='POST'){ $name = $_POST['name'] ?? ''; $email = $_POST['email'] ?? ''; $line = [$name, $email]; $fp = fopen('users.csv','a'); fputcsv($fp, $line); fclose($fp); echo "Saved to CSV"; } ?> </code></pre> </div> </section>
+
+<footer class="card">
+  <p>&copy; 2025 all rights reserved </p>
+</footer>
+
+  </div>
+</body>
+</html>

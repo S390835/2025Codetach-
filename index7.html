@@ -1,0 +1,313 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Python Notes — Quick Reference</title>
+  <style>
+    :root{--bg:#0f1724;--card:#0b1220;--accent:#06b6d4;--muted:#9aa6b2;--soft:#111827;--glass: rgba(255,255,255,0.03)}
+    html,body{height:100%;margin:0;font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,'Helvetica Neue',Arial; background:linear-gradient(180deg,#081026 0%, blue 100%);color:#e6eef3}
+    .wrap{max-width:1100px;margin:28px auto;padding:20px}
+    header{display:flex;align-items:center;gap:16px;margin-bottom:18px}
+    .logo{width:56px;height:56px;border-radius:10px;background:linear-gradient(135deg,var(--accent),#60a5fa);display:grid;place-items:center;font-weight:700;color:#042029}
+    h1{font-size:22px;margin:0}
+    p.lead{margin:6px 0 0;color:var(--muted);}
+    nav{display:flex;flex-wrap:wrap;gap:8px;margin:18px 0}
+    nav a{background:var(--glass);padding:8px 12px;border-radius:10px;color:var(--muted);text-decoration:none;font-size:13px}
+    main{display:grid;grid-template-columns:300px 1fr;gap:18px}
+    aside{position:sticky;top:20px;background:var(--card);padding:12px;border-radius:12px;border:1px solid rgba(255,255,255,0.02)}
+    aside h3{margin:0 0 8px 0;font-size:15px}
+    aside ul{list-style:none;padding:0;margin:0}
+    aside li{margin:6px 0}
+    a.toc{color:var(--accent);text-decoration:none}
+    section.card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:18px;border-radius:12px;border:1px solid rgba(255,255,255,0.03);margin-bottom:14px}
+    section.card h2{margin:0 0 8px 0}
+    .muted{color:var(--muted);font-size:14px}
+    pre{background:#021322;padding:12px;border-radius:8px;overflow:auto;color:#d1f1f9;margin:12px 0}
+    code{font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Roboto Mono,monospace;font-size:13px}
+    .controls{display:flex;gap:8px;align-items:center;margin-bottom:12px}
+    button{background:transparent;border:1px solid rgba(255,255,255,0.06);color:var(--muted);padding:8px 10px;border-radius:8px;cursor:pointer}
+    .accent{border-color:var(--accent);color:var(--accent)}
+    footer{margin-top:14px;color:var(--muted);font-size:13px}
+    @media(max-width:900px){main{grid-template-columns:1fr}aside{position:relative}}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="logo">Py</div>
+      <div>
+        <h1>Python tutorial</h1>
+      </div>
+    </header><nav>
+  <a href="#intro">Introduction</a>
+  <a href="#datatype">Data type</a>
+  <a href="#keywords">Keywords</a>
+  <a href="#string">String</a>
+  <a href="#boolean">Boolean</a>
+  <a href="#list">List</a>
+  <a href="#tuple">Tuple</a>
+  <a href="#array">Array</a>
+  <a href="#ifelse">If else</a>
+  <a href="#operators">Operators</a>
+  <a href="#set">Set</a>
+  <a href="#dict">Dictionaries</a>
+  <a href="#forloop">For loop</a>
+  <a href="#whileloop">While loop</a>
+  <a href="#dowhile">Do while</a>
+  <a href="#function">Function</a>
+  <a href="#oops">OOPs</a>
+</nav>
+
+<main>
+  <aside>
+    <h3>Contents</h3>
+    <ul>
+      <li><a class="toc" href="#intro">Introduction</a></li>
+      <li><a class="toc" href="#datatype">Data type</a></li>
+      <li><a class="toc" href="#keywords">Keywords</a></li>
+      <li><a class="toc" href="#string">String</a></li>
+      <li><a class="toc" href="#boolean">Boolean</a></li>
+      <li><a class="toc" href="#list">List</a></li>
+      <li><a class="toc" href="#tuple">Tuple</a></li>
+      <li><a class="toc" href="#array">Array</a></li>
+      <li><a class="toc" href="#ifelse">If else</a></li>
+      <li><a class="toc" href="#operators">Operators</a></li>
+      <li><a class="toc" href="#set">Set</a></li>
+      <li><a class="toc" href="#dict">Dictionaries</a></li>
+      <li><a class="toc" href="#forloop">For loop</a></li>
+      <li><a class="toc" href="#whileloop">While loop</a></li>
+      <li><a class="toc" href="#dowhile">Do while</a></li>
+      <li><a class="toc" href="#function">Function</a></li>
+      <li><a class="toc" href="#oops">OOPs</a></li>
+    </ul>
+
+    <div style="margin-top:12px">
+      <button id="copyAll">Copy All HTML</button>
+      <button id="download">Download .html</button>
+    </div>
+  </aside>
+
+  <section>
+
+    <article id="intro" class="card">
+      <h2>Introduction</h2>
+      <p style="font-size: 20px;" class="muted">Python is a high-level, interpreted programming language known for readability, simple syntax, and quick development. It supports multiple paradigms: procedural, object-oriented and functional programming.</p>
+      <pre><code># Hello world in Python
+
+print("Hello, world!")</code></pre> </article>
+
+<article id="datatype" class="card">
+      <h2>Data type</h2>
+      <p class="muted">Common built-in types: <strong>int</strong>, <strong>float</strong>, <strong>str</strong>, <strong>bool</strong>, <strong>list</strong>, <strong>tuple</strong>, <strong>set</strong>, <strong>dict</strong>. Use <code>type()</code> to check type.</p>
+      <pre><code>a = 10          # int
+
+b = 3.14        # float s = "py"       # str f = True        # bool print(type(a), type(b), type(s), type(f))</code></pre> </article>
+
+<article id="keywords" class="card">
+      <h2>Keyword</h2>
+      <p style="font-size: 20px" class="muted">Reserved words that have special meaning (cannot be used as identifiers). Examples: <code>if, else, elif, for, while, def, class, return, import, from, True, False, None</code>.</p>
+      <pre><code>import keyword
+
+print(keyword.kwlist)  # list of all keywords</code></pre> </article>
+
+<article id="string" class="card">
+      <h2>String</h2>
+      <p style="font-size: 20px;" class="muted">Immutable sequence of characters. Use single, double or triple quotes (triple for multi-line).</p>
+      <pre><code>s = "Hello"
+
+print(s[0])     # H print(s[1:4])   # ell print(len(s))
+
+f-string
+
+name = "A" print(f"Hello {name}")</code></pre> </article>
+
+<article id="boolean" class="card">
+      <h2>Boolean</h2>
+      <p style="font-size: 20px" class="muted">Represents truth values: <code>True</code> or <code>False</code>. Results of comparisons and logical operations.</p>
+      <pre><code>a = 5
+
+b = 3 print(a > b)    # True print(a == b)   # False print(not (a < b))</code></pre> </article>
+
+<article id="list" class="card">
+      <h2>List</h2>
+      <p style="font-size: 20px;" class="muted">Mutable ordered collection. Use square brackets. Supports append, pop, insert, slicing.</p>
+      <pre><code>nums = [1,2,3]
+
+nums.append(4) nums[0] = 0 print(nums)     # [0,2,3,4] print(nums[1:3])</code></pre> </article>
+
+<article id="tuple" class="card">
+      <h2>Tuple</h2>
+      <p style="font-size: 20px;" class="muted">Immutable ordered collection. Created with parentheses. Useful for fixed data.</p>
+      <pre><code>t = (1,2,3)
+
+t[0] = 5  # Error — tuples are immutable
+
+x,y,z = t   # unpacking print(x,y,z)</code></pre> </article>
+
+<article id="array" class="card">
+      <h2>Array</h2>
+      <p style="font-size: 20px" class="muted">Python lists are dynamic arrays. For numeric arrays with better performance use <code>array</code> module or <code>numpy</code> (external).</p>
+      <pre><code>from array import array
+
+arr = array('i', [1,2,3])  # 'i' = signed int arr.append(4) print(arr)
+
+numpy example (requires numpy installed)
+
+import numpy as np
+
+a = np.array([1,2,3])</code></pre>
+
+</article>
+
+    <article id="ifelse" class="card">
+      <h2>If else</h2>
+      <p style="font-size: 20px" class="muted">Conditional execution using <code>if</code>, <code>elif</code>, <code>else</code>.</p>
+      <pre><code>x = 10
+
+if x > 0: print('positive') elif x == 0: print('zero') else: print('negative')</code></pre> </article>
+
+<article id="operators" class="card">
+      <h2>Operators</h2>
+      <p style="font-size: 20px" class="muted">Arithmetic: <code>+ - * / // % **</code>. Comparison: <code>== != &gt; &lt; &gt;= &lt;=</code>. Logical: <code>and or not</code>. Membership: <code>in, not in</code>.</p>
+      <pre><code>a = 7
+
+b = 3 print(a // b)  # integer division -> 2 print(a ** b)  # power -> 343 print((a > 5) and (b < 5))</code></pre> </article>
+
+<article id="set" class="card">
+      <h2>Set</h2>
+      <p style="font-size: 20px" class="muted">Unordered collection of unique items. Supports union, intersection, difference.</p>
+      <pre><code>s1 = {1,2,3}
+
+s2 = set([2,3,4]) print(s1 | s2)   # union print(s1 & s2)   # intersection s1.add(5) print(s1)</code></pre> </article>
+
+<article id="dict" class="card">
+      <h2>Dictionaries</h2>
+      <p style="font-size: 20px" class="muted">Key-value mapping. Keys are usually strings or numbers. Mutable and unordered (ordered since Python 3.7 insertion order preserved).</p>
+      <pre><code>d = {'name':'Ravi', 'age':20}
+
+print(d['name']) d['city'] = 'Delhi' for k,v in d.items(): print(k,v)</code></pre> </article>
+
+<article id="forloop" class="card">
+      <h2>For loop</h2>
+      <p style="font-size: 20px;" class="muted">Iterates over sequence items (list, tuple, string, range, dict keys, etc.).</p>
+      <pre><code>for i in range(5):
+print(i)
+
+words = ['a','b','c'] for w in words: print(w)
+
+enumerate
+
+for idx, val in enumerate(words): print(idx, val)</code></pre> </article>
+
+<article id="whileloop" class="card">
+      <h2>While loop</h2>
+      <p style="font-size: 20px;" class="muted">Runs while a condition is true. Be careful to avoid infinite loops.</p>
+      <pre><code>n = 3
+
+while n > 0: print(n) n -= 1 else: print('loop finished')</code></pre> </article>
+
+<article id="dowhile" class="card">
+      <h2>Do while (Python doesn't have built-in)</h2>
+      <p style="font-size: 20px;" class="muted">Python has no native do-while. Use a <code>while True</code> loop with a break at the end to simulate.</p>
+      <pre><code# simulated do-while
+
+count = 0 while True: print('run at least once') count += 1 if count >= 1: break</code></pre> </article>
+
+<article id="function" class="card">
+      <h2>Function</h2>
+      <p style="font-size: 20px;" class="muted">Defined with <code>def</code>. Can return values, have default args, *args, **kwargs, and annotations.</p>
+      <pre><code>def add(a, b=0):
+"""Return sum of a and b"""
+return a + b
+
+print(add(2,3))
+
+lambda (anonymous) function
+
+f = lambda x: x * 2 print(f(5))</code></pre> </article>
+
+<article id="oops" class="card">
+      <h2>OOPs (Object-Oriented Programming)</h2>
+      <p style="font-size: 20px;" class="muted">Core concepts: class, object, inheritance, encapsulation, polymorphism, constructor (<code>__init__</code>).</p>
+      <pre><code>class Person:
+def __init__(self, name, age):
+    self.name = name
+    self.age = age
+def greet(self):
+    return f"Hi, I'm {self.name}"
+
+class Student(Person): def init(self, name, age, sid): super().init(name, age) self.sid = sid
+
+s = Student('R', 20, 101) print(s.greet()) print(s.sid)</code></pre> </article>
+<article class="card">
+  <h2>Class</h2>
+  <pre><code>
+    <p style="font-size: 20px;" class="muted">🔹 Definition:
+A class defines how an object should look and behave. Instead of writing code again and again, we define a class once and reuse it.
+<br>
+# Defining a class
+class Car:
+    def __init__(self, brand, model):
+        self.brand = brand      # attribute
+        self.model = model      # attribute
+
+    def show(self):             # method
+        print(f"{self.brand} {self.model}")
+
+# Creating objects (instances)
+car1 = Car("Tesla", "Model S")
+car2 = Car("Toyota", "Corolla")
+
+car1.show()   # Tesla Model S
+car2.show()   # Toyota Corolla
+    </p>
+  </code></pre>
+</article>
+<article class="card">
+  <h2>
+    Object 
+  </h2>
+  <pre><code>
+    <p  style="font-size: 20px;" class="muted">An object is an instance of a class.
+
+It is a real-world entity that has state (data/attributes) and behavior (methods/functions).
+
+When we create a class, it’s just a blueprint. Objects are the actual usable things built from that blueprint.</p>
+  </code></pre>
+</article>
+
+<footer>
+      <p>&copy; 2025 All rights reserved</p>
+    </footer>
+
+  </section>
+</main>
+
+  </div>  <script>
+    // Copy page HTML to clipboard
+    document.getElementById('copyAll').addEventListener('click', async ()=>{
+      try{
+        const html = document.documentElement.outerHTML;
+        await navigator.clipboard.writeText(html);
+        alert('Full HTML copied to clipboard. Paste into a file and save as .html');
+      }catch(e){
+        alert('Copy failed: '+e);
+      }
+    });
+
+    // Download current page as .html
+    document.getElementById('download').addEventListener('click', ()=>{
+      const html = '<!doctype html>\n' + document.documentElement.outerHTML;
+      const blob = new Blob([html], {type: 'text/html'});
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url; a.download = 'Python_Notes_Webpage.html';
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+      URL.revokeObjectURL(url);
+    });
+  </script></body>
+</html>

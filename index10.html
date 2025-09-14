@@ -1,0 +1,281 @@
+<!doctype html>
+
+<html lang="hi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>c++</title>
+  <style>
+    :root{--bg:#071022;--card:#0b1220;--accent:#7dd3fc;--muted:#9aa4b2}
+    *{box-sizing:border-box}
+    body{font-family:Inter, system-ui, Roboto, 'Noto Sans', Arial; margin:0; background:linear-gradient(180deg,#061022, #071226); color:#e6eef6}
+    header{padding:18px; display:flex; gap:14px; align-items:center; border-bottom:1px solid rgba(255,255,255,0.03)}
+    .brand{font-weight:700}
+    .container{max-width:1200px; margin:18px auto; padding:14px}
+    .grid{display:grid; grid-template-columns:320px 1fr; gap:18px}
+    nav{background:var(--card); padding:14px; border-radius:12px; height:calc(100vh - 140px); overflow:auto}
+    nav input{width:100%; padding:10px; border-radius:8px; border:1px solid rgba(255,255,255,0.04); background: white; color:inherit}
+    nav ul{list-style:none; padding:8px 0; margin:0}
+    nav li{padding:6px 6px}
+    nav a{color:var(--muted); text-decoration:none; display:block}
+    nav a:hover{color:var(--accent)}
+    main{padding:16px; background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent); border-radius:12px; min-height:60vh}
+    .section{margin-bottom:20px; padding:12px; background:rgba(255,255,255,0.01); border-radius:10px}
+    h1,h2{margin:6px 0 12px}
+    pre{background:#04101a; padding:12px; border-radius:8px; overflow:auto}
+    code{font-family:source-code-pro, Menlo, monospace}
+    .actions{display:flex; gap:8px}
+    button{background:var(--accent); border:none; padding:8px 12px; border-radius:8px; color:#012; font-weight:700; cursor:pointer}
+    .muted{color:var(--muted)}
+    .small{font-size:0.95rem}
+    table{width:100%; border-collapse:collapse}
+    td,th{padding:8px; border-bottom:1px solid rgba(255,255,255,0.03)}
+    @media(max-width:900px){.grid{grid-template-columns:1fr} nav{height:auto}}
+  </style>
+</head>
+<body>
+  <header>
+        <div class="brand"><h1>C++ tutorial</h1></div>
+        <div class="muted small"></div>
+      </div>
+    </div>
+  </header>  <div class="container">
+    <div class="grid">
+      <nav>
+        <input id="navSearch" placeholder="Search topic" oninput="filterNav()" />
+        <ul id="toc">
+          <li><a href="#intro">Introduction & History</a></li>
+          <li><a href="#setup">Setup & Hello World</a></li>
+          <li><a href="#basics">Basics & Syntax</a></li>
+          <li><a href="#types">Types & Variables</a></li>
+          <li><a href="#control">Control Flow</a></li>
+          <li><a href="#functions">Functions & Overloading</a></li>
+          <li><a href="#oop">OOP — Classes & Objects</a></li>
+          <li><a href="#memory">Memory, Pointers & References</a></li>
+          <li><a href="#stl">STL — Containers & Algorithms</a></li>
+          <li><a href="#templates">Templates & Generic Programming</a></li>
+          <li><a href="#exceptions">Exceptions & RAII</a></li>
+          <li><a href="#advanced">Advanced C++ (Move, Smart Ptr, Lambda)</a></li>
+          <li><a href="#concurrency">Concurrency & Threads</a></li>
+          <li><a href="#files">File I/O & Streams</a></li>
+          <li><a href="#design">Design Patterns & Best Practices</a></li>
+          <li><a href="#projects">Projects & Exercises</a></li>
+          <li><a href="#cheatsheet">Cheatsheet</a></li>
+          <li><a href="#practice">Practice Questions</a></li>
+        </ul>
+      </nav><main id="content">
+    <section id="intro" class="section">
+      <h2>Introduction & History</h2>
+      <p>C++ was created by Bjarne Stroustrup (1979 onward) as "C with Classes". It supports procedural, object-oriented, and generic programming paradigms. Modern C++ (C++11/14/17/20/23) added many powerful features.</p>
+    </section>
+
+    <section id="setup" class="section">
+      <h2>Setup & Hello World</h2>
+      <pre><code>// hello.cpp
+
+#include <iostream>
+
+int main(){ std::cout << "Hello, C++ world!\n"; return 0; }
+
+// Compile: g++ -std=c++17 hello.cpp -o hello // Run: ./hello </code></pre> </section>
+
+<section id="basics" class="section">
+      <h2>Basics & Syntax</h2>
+      <ul>
+        <li>Statements end with <code>;</code>, blocks use <code>{ }</code></li>
+        <li>Namespaces: <code>namespace std { }</code> and <code>using namespace std;</code> (prefer std::)</li>
+        <li>Auto type deduction: <code>auto x = 10;</code></li>
+        <li>Header files: <code>&lt;iostream&gt;, &lt;vector&gt;, &lt;string&gt;</code></li>
+      </ul>
+    </section>
+
+    <section id="types" class="section">
+      <h2>Types & Variables</h2>
+      <p>Built-in: <code>int, long, float, double, char, bool, void</code>. Modifiers and fixed-width types: <code>int32_t, uint64_t</code> from &lt;cstdint&gt;.</p>
+      <pre><code>int a = 10;
+
+long long big = 1e12; std::string s = "hello"; </code></pre> </section>
+
+<section id="control" class="section">
+      <h2>Control Flow</h2>
+      <pre><code>if(cond){ }
+
+switch(x){ case 1: break; } for(auto &v : vec) { } while(cond) { } </code></pre> </section>
+
+<section id="functions" class="section">
+      <h2>Functions & Overloading</h2>
+      <p>Function overloading, default arguments, inline, constexpr, noexcept.</p>
+      <pre><code>int add(int a,int b){ return a+b; }
+
+int add(int a,int b,int c){ return a+b+c; }
+
+constexpr int square(int x){ return x*x; } </code></pre> </section>
+
+<section id="oop" class="section">
+      <h2>OOP — Classes & Objects</h2>
+      <pre><code>class Point{
+
+public: int x,y; Point(int x=0,int y=0): x(x), y(y) {} void move(int dx,int dy){ x+=dx; y+=dy; } };
+
+Point p(1,2); p.move(3,4); </code></pre> <p>Key: encapsulation, access specifiers (<code>public, private, protected</code>), constructors, destructors.</p>
+
+<h3>Inheritance & Polymorphism</h3>
+      <pre><code>class Base{ public: virtual void f(){ std::cout<<"Base\n"; } virtual ~Base(){} };
+
+class Derived: public Base{ public: void f() override { std::cout<<"Derived\n"; } };
+
+Base* b = new Derived(); b->f(); // calls Derived::f </code></pre> </section>
+
+<section id="memory" class="section">
+      <h2>Memory, Pointers & References</h2>
+      <p>References (<code>int &r = x</code>) vs pointers (<code>int *p</code>). Prefer references when possible. Use smart pointers (unique_ptr, shared_ptr) instead of raw new/delete.</p>
+      <pre><code>int x=10;
+
+int &r = x; // alias int *p = &x; // pointer
+
+#include <memory> auto up = std::make_unique<int>(5); </code></pre> </section>
+
+<section id="stl" class="section">
+      <h2>STL — Containers & Algorithms</h2>
+      <h3>Containers</h3>
+      <pre><code>#include <vector>
+
+#include <list> #include <map>
+
+std::vector<int> v = {1,2,3}; std::mapstd::string,int mp; </code></pre>
+
+<h3>Algorithms</h3>
+      <pre><code>#include <algorithm>
+
+std::sort(v.begin(), v.end()); auto it = std::find(v.begin(), v.end(), 2); </code></pre>
+
+<p>Iterators, range-based for, and adapters (stack, queue, priority_queue).</p>
+    </section>
+
+    <section id="templates" class="section">
+      <h2>Templates & Generic Programming</h2>
+      <pre><code>template<typename T>
+
+T add(T a,T b){ return a+b; }
+
+template<class T> class MyVec{ /* ... */ }; </code></pre> <p>Template specialization, variadic templates, SFINAE, concepts (C++20).</p> </section>
+
+<section id="exceptions" class="section">
+      <h2>Exceptions & RAII</h2>
+      <pre><code>try { /* code */ }
+
+catch(const std::exception &e){ std::cerr << e.what(); } </code></pre> <p>RAII: manage resources via objects' lifetime (e.g., std::lock_guard, std::unique_ptr).</p> </section>
+
+<section id="advanced" class="section">
+      <h2>Advanced C++</h2>
+      <h3>Move Semantics & Rvalue References</h3>
+      <pre><code>std::vector<int> v;
+
+std::vector<int> w = std::move(v); // move
+
+void f(std::string &&s) { /* s is rvalue ref */ } </code></pre>
+
+<h3>Smart Pointers</h3>
+      <pre><code>#include <memory>
+
+std::unique_ptr<Foo> p = std::make_unique<Foo>(); std::shared_ptr<Foo> s = std::make_shared<Foo>(); </code></pre>
+
+<h3>Lambda Expressions</h3>
+      <pre><code>auto sq = [](int x){ return x*x; };
+
+std::sort(v.begin(), v.end(), [](int a,int b){ return a<b; }); </code></pre>
+
+<h3>Move ctor / copy ctor</h3>
+      <pre><code>class A{
+
+public: A(const A&)=default; // copy A(A&&) noexcept = default; // move }; </code></pre> </section>
+
+<section id="concurrency" class="section">
+      <h2>Concurrency & Threads</h2>
+      <pre><code>#include <thread>
+
+#include <mutex>
+
+std::thread t({ /* work */ }); if(t.joinable()) t.join(); std::mutex m; std::lock_guardstd::mutex lk(m); </code></pre> <p>Also: futures, async, condition_variable, atomic.</p> </section>
+
+<section id="files" class="section">
+      <h2>File I/O & Streams</h2>
+      <pre><code>#include <fstream>
+
+std::ifstream in("input.txt"); std::string line; while(std::getline(in,line)) std::cout<<line<<"\n"; </code></pre> </section>
+
+<section id="design" class="section">
+      <h2>Design Patterns & Best Practices</h2>
+      <ul>
+        <li>Rule of Three / Five / Zero</li>
+        <li>Prefer RAII, smart pointers</li>
+        <li>Minimize use of raw pointers; prefer references</li>
+        <li>Use const correctness and noexcept where possible</li>
+      </ul>
+    </section>
+
+    <section id="projects" class="section">
+      <h2>Projects & Exercises</h2>
+      <ol>
+        <li>Build a simple class-based Bank Management System (OOP + File I/O)</li>
+        <li>Implement a custom vector (dynamic array) with move semantics</li>
+        <li>Multithreaded web-crawler (threads + mutex + queue)</li>
+        <li>STL practice: solve problems using vector, set, map, priority_queue</li>
+      </ol>
+    </section>
+
+    <section id="cheatsheet" class="section">
+      <h2>Cheatsheet</h2>
+      <table>
+        <tr><th>Topic</th><th>Quick Note</th></tr>
+        <tr><td>auto</td><td>Type deduction</td></tr>
+        <tr><td>std::move</td><td>Convert to rvalue for move</td></tr>
+        <tr><td>unique_ptr</td><td>Exclusive ownership</td></tr>
+        <tr><td>shared_ptr</td><td>Shared ownership</td></tr>
+        <tr><td>std::vector</td><td>Dynamic array</td></tr>
+      </table>
+    </section>
+
+    <section id="practice" class="section">
+      <h2>Practice Questions</h2>
+      <ol>
+        <li>Implement copy constructor and move constructor for a simple class.</li>
+        <li>Use STL to count word frequency in a text file.</li>
+        <li>Implement producer-consumer using threads and condition_variable.</li>
+        <li>Template meta-programming: write a constexpr factorial template.</li>
+      </ol>
+    </section>
+
+    <footer class="muted small">&copy; 2025 all rightsreserved</footer>
+  </main>
+</div>
+
+  </div>  <script>
+    function printPage(){window.print()}
+    function filterNav(){
+      const q = document.getElementById('navSearch').value.toLowerCase();
+      document.querySelectorAll('#toc li').forEach(li => {
+        const a = li.innerText.toLowerCase();
+        li.style.display = a.includes(q) ? 'block' : 'none';
+      })
+    }
+    function expandAll(){
+      document.querySelectorAll('.section').forEach(s => Array.from(s.children).forEach(ch=>ch.style.display='block'))
+      window.scrollTo(0,0)
+    }
+    function collapseAll(){
+      document.querySelectorAll('.section').forEach(s => {
+        Array.from(s.children).forEach(ch => { if(ch.tagName !== 'H2') ch.style.display = 'none'; });
+      })
+      window.scrollTo(0,0)
+    }
+    document.querySelectorAll('#toc a').forEach(a => a.addEventListener('click', e => {
+      setTimeout(()=>{
+        const id = a.getAttribute('href').slice(1);
+        const s = document.getElementById(id);
+        if(s) Array.from(s.children).forEach(ch=>ch.style.display='block');
+      },50);
+    }));
+    collapseAll();
+  </script></body>
+</html>
